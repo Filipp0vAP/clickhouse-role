@@ -5,14 +5,14 @@
     mode: 0644
     src: templates/clickhouse_config.xml.j2
     dest: /etc/clickhouse-server/config.xml
-  notify: restart-clickhouse-service
+  notify: Start clickhouse service
 - name: Copying Clickhouse users
   become: true
   ansible.builtin.template:
     mode: 0644
     src: templates/clickhouse_users.xml.j2
     dest: /etc/clickhouse-server/users.xml
-  notify: restart-clickhouse-service
+  notify: Start clickhouse service
 - name: Start clickhouse service
   become: true
   ansible.builtin.systemd:
